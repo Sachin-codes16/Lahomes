@@ -59,12 +59,12 @@ const PropertyAddCard = () => {
           <Row className="g-2">
             <Col lg={6}>
               <Button variant="outline-primary" className="w-100">
-                Add Property
+                Cancel
               </Button>
             </Col>
             <Col lg={6}>
-              <Button variant="danger" className="w-100">
-                Cancel
+              <Button variant="primary"ame="w-100">
+                Add Property
               </Button>
             </Col>
           </Row>

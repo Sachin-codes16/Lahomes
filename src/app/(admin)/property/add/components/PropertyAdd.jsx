@@ -22,19 +22,34 @@ const PropertyAdd = () => {
       <Card className="mb-4">
         <CardBody className="py-3">
           <Row className="align-items-center">
-            <Col lg={6}>
+            <Col lg={4}>
               <h2 className="fw-semibold mb-0">Add New Property</h2>
             </Col>
-           <Col lg={4}>
-              <div className="d-flex justify-content-end align-items-center gap-4">
-                <span className="fw-medium">Select Property Type :</span>
-                <ChoicesFormInput style={{ width: 340}}>
-                  <option>Flat / Apartment</option>
-                  <option>Villa</option>
-                  <option>Office</option>
-                </ChoicesFormInput>
-              </div>
-            </Col> 
+          <Col lg={6}>
+    <div className="d-flex justify-content-end align-items-center gap-3">
+      <span className="fw-semibold fs-5">
+        Select Property Type :
+      </span>
+
+      <ChoicesFormInput
+        style={{
+          width: 400,
+          height: 50,
+          fontSize: '16px',
+          fontWeight: 500,
+          borderRadius: '10px',
+          padding: '10px 14px',
+          backgroundColor: '#f9fafb',
+          border: '1px solid #d0d5dd'
+        }}
+      >
+        <option>Flat/Apartment</option>
+        <option>Villa</option>
+        <option>Office</option>
+      </ChoicesFormInput>
+    </div>
+  </Col>
+
            
           </Row>
         </CardBody>
@@ -50,7 +65,8 @@ const PropertyAdd = () => {
             <Col lg={4}>
               <label className="form-label">Building Name</label>
               <ChoicesFormInput className="form-control">
-                <option>Select Building</option>
+                <option>Select Building Name</option>
+                
               </ChoicesFormInput>
             </Col>
             <Col lg={4}><TextFormInput control={control} name="building_block" label="Building Block" /></Col>

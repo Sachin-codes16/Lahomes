@@ -19,6 +19,7 @@ const ComingSoon = lazy(() => import('@/app/(other)/coming-soon/page'));
 const Maintenance = lazy(() => import('@/app/(other)/maintenance/page'));
 const Error404 = lazy(() => import('@/app/(other)/(error-pages)/404-error/page'));
 const TenantReport = lazy(() => import('../app/(admin)/Report/Tenants Report/Components/Tenants report.jsx'));
+const Landlord = lazy(() => import('../app/(admin)/landlord/landlord1.jsx'));
 const initialRoutes = [{
   path: '/',
   name: 'root',
@@ -29,6 +30,16 @@ const routes = [{
   path: '/dashboards',
   name: 'Analytics',
   element: <Dashboard />
+},
+{
+  path: '/add leads',
+  name: 'Add leads',
+  element: <CustomerAddPage />
+},
+{
+  path: '/landlord1',
+  name: 'landlord Dashboard',
+  element: <Landlord/>
 },
 {
   path: '/landlord/add-property',
@@ -42,36 +53,36 @@ const routes = [{
   element: <PropertyGridPage />
 },
 {
-  path: '/messages',
-  name: 'Messages',
-  element: <ChatPage />
-},
-{
-  path: '/list',
-  name: 'tenants  List View',
-  element: <ListViewPage />
-},
-
-{
-  path: '/add leads',
-  name: 'Add leads',
-  element: <CustomerAddPage />
-},
-{
   path: '/landlord-list',
   name: 'landlord List',
   element: <ListViewPage1 />
 },
+
+
 {
   path: '/Tenants',
   name: 'Tenants  Dashboard',
   element: <GridViewPage />
 },
 {
+  path: '/list',
+  name: 'tenants  List View',
+  element: <ListViewPage />
+},
+{
+  path: '/messages',
+  name: 'Messages',
+  element: <ChatPage />
+},
+
+
+
+{
   path: '/Tenants-report',
   name: 'Tenants  Report',
   element: <TenantReport />
-}
+},
+
 ];
 
 export const authRoutes = [{
@@ -104,3 +115,21 @@ export const authRoutes = [{
   element: <ComingSoon />
 }];
 export const appRoutes = [...initialRoutes, ...routes, authRoutes];
+
+
+
+
+
+
+
+//  {
+//   key: 'Tenants',
+//   label: 'Tenants',
+//   url : '/tenants',
+//   icon: 'ri:news-line',
+//   children: [{
+//     key: 'Tenants-list',
+//     label: 'Tenants List',
+//     url: '/list',
+//     parentKey: 'Tenants'
+//   },]
