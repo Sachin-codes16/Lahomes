@@ -66,3 +66,13 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+/* ===== Choices dropdown text fix ===== */
+.choices__list--dropdown .choices__item,
+.choices__inner,
+.choices__item--selectable {
+  writing-mode: horizontal-tb !important;
+  white-space: nowrap !important;
+  word-break: normal !important;
+  display: block !important;
+}
+

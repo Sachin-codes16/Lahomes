@@ -26,7 +26,7 @@ export const statisticData = [{
   
   
   'Conversion Rate',
-  amount: `78.3M`,
+  amount: `78.3%`,
   change: 8.76
 }];
 export const propertyData = [{

@@ -4,7 +4,7 @@ import PropertiesData from './components/PropertiesData';
 import PropertiesFilter from './components/PropertiesFilter';
 const PropertyGridPage = () => {
   return <>
-      <PageTitle title="Property List" subName="Real Estate" />
+      <PageTitle title="" subName="" />
       <Row>
         <PropertiesFilter />
         <PropertiesData />

@@ -4,7 +4,7 @@ import { Card, CardHeader, Col, Row } from 'react-bootstrap';
 import AgentList from './AgentList';
 const ListViewPage = () => {
   return <>
-      <PageTitle surname="Real Estate"  title="Tenants List" />
+      <PageTitle surname=""  title="" />
       <Row>
         <Col lg={12}>
           <Card>

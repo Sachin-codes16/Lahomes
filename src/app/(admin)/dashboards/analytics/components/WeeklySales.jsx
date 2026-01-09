@@ -4,9 +4,12 @@ import properties7 from '@/assets/images/properties/p-7.jpg';
 import properties8 from '@/assets/images/properties/p-8.jpg';
 import properties9 from '@/assets/images/properties/p-9.jpg';
 import ReactApexChart from 'react-apexcharts';
+import { useNavigate } from 'react-router-dom';
+
 import { Button, Card, CardBody, CardFooter, CardHeader, CardTitle, Carousel, CarouselItem, Col } from 'react-bootstrap';
 import { salesOptions } from '../data';
 const WeeklySales = () => {
+  const navigate = useNavigate();
   return <Col xl={3} lg={6}>
       <Card>
         <CardHeader>
@@ -37,7 +40,8 @@ const WeeklySales = () => {
             <span className="text-dark me-1">Total Property Rented : </span>5,746
           </p>
           <div>
-            <Button variant="primary" size="sm">
+            <Button variant="primary" size="sm"
+             onClick={() => navigate('/list')}>
               View More
             </Button>
           </div>

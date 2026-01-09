@@ -3,7 +3,7 @@ import PropertyList from './components/PropertyList';
 import PropertyStat from './components/PropertyStat';
 const PropertyListPage = () => {
   return <>
-      <PageTitle title="Listing List" subName="Real Estate" />
+      <PageTitle title="" subName="" />
       <PropertyStat />
       <PropertyList />
     </>;

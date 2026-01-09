@@ -6,9 +6,17 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Button, Card, CardBody, CardHeader, CardTitle, Col, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';  
+import { useEffect } from 'react';
+import Choices from 'choices.js';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
+
 
 import * as yup from 'yup';
 const Addlead = () => {
+  
+  const [phone, setPhone] = useState('');
+  
   
 
 const [step, setStep] = useState('main'); // main | tenant | landlord
@@ -36,26 +44,40 @@ const [leadSubType, setLeadSubType] = useState('');
     resolver: yupResolver(messageSchema)
   });
   return <form onSubmit={handleSubmit(() => {})}>
+    
       <Card>
         <CardHeader>
-          <CardTitle as={'h4'}>Add lead information</CardTitle>
+          <CardTitle as={'h4'}>Add Lead Information</CardTitle>
         </CardHeader>
         <CardBody>
           <Row>
             <Col lg={6}>
               <div className="mb-3">
-                <TextFormInput control={control} name="name" placeholder="Full Name" label="First Name" />
+                <TextFormInput control={control} name="First name" placeholder="Enter you first name" label="First Name" />
               </div>
             </Col>
             <Col lg={6}>
               <div className="mb-3">
-                <TextFormInput control={control} name="name" placeholder="Last Name" label="Last Name" />
+                <TextFormInput control={control} name="last name" placeholder="Enter you last name" label="Last Name" />
               </div>
             </Col>
+                        {/* ✅ CONTACT NUMBER WITH COUNTRY CODE */}
+            <Col lg={6}>
+              <div className="mb-3">
+                <label className="form-label">Contact Number</label>
+                <PhoneInput
+                  country={'in'}
+                  value={phone}
+                  onChange={setPhone}
+                  inputStyle={{ width: '100%' }}
+                />
+              </div>
+            </Col>
+
            
             <Col lg={6}>
               <div className="mb-3">
-                <TextFormInput control={control} name="email" placeholder="Contact Number" label="Contact Number" />
+                <TextFormInput control={control} name="number" placeholder="Contact Number" label="Contact Number" />
               </div>
             </Col>
              <Col lg={6}>
@@ -66,7 +88,7 @@ const [leadSubType, setLeadSubType] = useState('');
           
              <Col lg={6}>
               <div className="mb-3">
-                <TextFormInput control={control} name="name" placeholder="Enter Detail" label="Passport ID/ Number" />
+                <TextFormInput control={control} name="Passport id" placeholder="Enter Detail" label="Passport ID/ Number" />
               </div>
             </Col>
             {/* <Col lg={6}>
@@ -160,39 +182,70 @@ const [leadSubType, setLeadSubType] = useState('');
             </Col>
             <Col lg={4}>
               <div className="mb-3">
-                <TextFormInput control={control} name="PO BOX" type="number" placeholder="PO BOX" label="PO BOX" />
+                <TextFormInput control={control} name="PO BOX"  placeholder="PO BOX" label="PO BOX" />
               </div>
             </Col>
              <Col lg={4}>
-              <div className="mb-3">
-                <label htmlFor="choices-country" className="form-label">
-                  Country
-                </label>
-                <ChoicesFormInput className="form-control" id="choices-country" data-choices data-choices-groups data-placeholder="Select Country">
-                  <option>Choose a country</option>
-                  <optgroup>
-                    <option>United Kingdom</option>
-                    <option value="Fran">France</option>
-                    <option value="Netherlands">Netherlands</option>
-                    <option value="U.S.A">U.S.A</option>
-                    <option value="Denmark">Denmark</option>
-                    <option value="Canada">Canada</option>
-                    <option value="Australia">Australia</option>
-                    <option value="India">India</option>
-                    <option value="Germany">Germany</option>
-                    <option value="Spain">Spain</option>
-                    <option value="United Arab Emirates">United Arab Emirates</option>
-                  </optgroup>
-                </ChoicesFormInput>
-              </div>
-            </Col>
+  <div className="mb-3">
+    <label htmlFor="choices-country" className="form-label">
+      Country
+    </label>
+
+    <ChoicesFormInput
+      className="form-control"
+      id="choices-country"
+      data-choices
+      data-choices-groups
+      data-placeholder="Select Country"
+    >
+      <option value="">Choose a country</option>
+
+      <optgroup label="Countries">
+        <option value="GB" data-custom-properties='{"flag":"🇬🇧"}'>
+          United Kingdom
+        </option>
+        <option value="FR" data-custom-properties='{"flag":"🇫🇷"}'>
+          France
+        </option>
+        <option value="NL" data-custom-properties='{"flag":"🇳🇱"}'>
+          Netherlands
+        </option>
+        <option value="US" data-custom-properties='{"flag":"🇺🇸"}'>
+          U.S.A
+        </option>
+        <option value="DK" data-custom-properties='{"flag":"🇩🇰"}'>
+          Denmark
+        </option>
+        <option value="CA" data-custom-properties='{"flag":"🇨🇦"}'>
+          Canada
+        </option>
+        <option value="AU" data-custom-properties='{"flag":"🇦🇺"}'>
+          Australia
+        </option>
+        <option value="IN" data-custom-properties='{"flag":"🇮🇳"}'>
+          India
+        </option>
+        <option value="DE" data-custom-properties='{"flag":"🇩🇪"}'>
+          Oman
+        </option>
+        <option value="ES" data-custom-properties='{"flag":"🇪🇸"}'>
+          Spain
+        </option>
+        <option value="AE" data-custom-properties='{"flag":"🇦🇪"}'>
+          United Arab Emirates
+        </option>
+      </optgroup>
+    </ChoicesFormInput>
+  </div>
+</Col>
+
             <Col lg={4}>
               <div className="mb-3">
                 <label htmlFor="choices-city" className="form-label">
                   City
                 </label>
-                <ChoicesFormInput className="form-control" id="choices-city" data-choices data-choices-groups data-placeholder=" City">
-                  <option>Choose a city</option>
+                <ChoicesFormInput className="form-control" id="choices-city" data-placeholder=" City">
+                <option value="">Choose a City</option>
                   <optgroup label="UK">
                     <option value="London">London</option>
                     <option value="Manchester">Manchester</option>
@@ -230,10 +283,14 @@ const [leadSubType, setLeadSubType] = useState('');
             </Col>
            
             <Col lg={4}>
-              <div className="mb-3">
-                <TextFormInput control={control} name="Lead Origin" placeholder="lead_orgin" label="Lead Origin" />
-              </div>
-            </Col>
+                          <label className="form-label">Lead Origin</label>
+                          <ChoicesFormInput className="form-control">
+                            <option>Lead-Origin</option>
+                            <option></option>
+                            <option></option>
+                            <option></option>
+                          </ChoicesFormInput>
+                        </Col>
             <Col lg={4}>
               <div className="mb-3">
                 <TextFormInput control={control} name="Created At" placeholder="Time-Lapse" label="Created At" />
@@ -245,23 +302,17 @@ const [leadSubType, setLeadSubType] = useState('');
               </div>
             </Col>
             <Col lg={4}>
-              <div className="mb-3">
-                <label htmlFor="choices-status" className="form-label">
-                  Status
-                </label>
-                <ChoicesFormInput className="form-control" id="choices-status" data-choices data-choices-groups data-placeholder="Cho">
-                  <option>Choose a Status</option>
-                  <optgroup>
-                    <option>Active </option>
-                    <option >Inactive</option>
-                  </optgroup>
-                </ChoicesFormInput>
-                
-              </div>
-            </Col>
+                          <label className="form-label">Status</label>
+                          <ChoicesFormInput className="form-control">
+                            <option>Choose Status</option>
+                            <option>Active</option>
+                            <option>Inactive</option>
+                            
+                          </ChoicesFormInput>
+                        </Col>
             <Col lg={4}>
               <div className="mb-3">
-                <TextFormInput control={control} name="Updated At" placeholder="Lead Assigned To" label="Lead Assigned To" />
+                <TextFormInput control={control} name="Assigned to" placeholder="Lead Assigned To" label="Lead Assigned To" />
               </div>
             </Col>
              <Col lg={4}>

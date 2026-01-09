@@ -19,48 +19,33 @@ const PropertyAdd = () => {
     <form onSubmit={handleSubmit(() => {})}>
 
       {/* ================= HEADER ================= */}
-      <Card className="mb-4">
-        <CardBody className="py-3">
-          <Row className="align-items-center">
-            <Col lg={4}>
-              <h2 className="fw-semibold mb-0">Add New Property</h2>
-            </Col>
-          <Col lg={6}>
-    <div className="d-flex justify-content-end align-items-center gap-3">
-      <span className="fw-semibold fs-5">
-        Select Property Type :
-      </span>
+     
 
-      <ChoicesFormInput
-        style={{
-          width: 400,
-          height: 50,
-          fontSize: '16px',
-          fontWeight: 500,
-          borderRadius: '10px',
-          padding: '10px 14px',
-          backgroundColor: '#f9fafb',
-          border: '1px solid #d0d5dd'
-        }}
-      >
-        <option>Flat/Apartment</option>
-        <option>Villa</option>
-        <option>Office</option>
-      </ChoicesFormInput>
-    </div>
-  </Col>
+  {/* <option value="flat">Flat / Apartment</option>
+  <option value="villa">Villa/Banglow</option>
+  <option value="office">Commercial</option>
+  <option value="office">werehouse</option> */}
+
+  
 
            
-          </Row>
-        </CardBody>
-      </Card>
+          
       {/* ================= BASIC PROPERTY DETAILS ================= */}
       <Card className="mb-4">
         <CardBody>
           <h4 className="fw-semibold">Basic Property Details</h4>
           <hr />
           <Row className="g-3">
-            <Col lg={4}><TextFormInput control={control} name="property_type" label="Property Type" placeholder="Flat" /></Col>
+            <Col lg={4}>
+              <label className="form-label">Select Property Type</label>
+              <ChoicesFormInput className="form-control">
+                <option value="flat">Flat / Apartment</option>
+  <option value="villa">Villa/Banglow</option>
+  <option value="office">Commercial</option>
+  <option value="office">Werehouse</option> 
+              </ChoicesFormInput>
+            </Col>
+          
             <Col lg={4}><TextFormInput control={control} name="property_code" label="Property Code / ID" placeholder="Auto-Generated" /></Col>
             <Col lg={4}>
               <label className="form-label">Building Name</label>

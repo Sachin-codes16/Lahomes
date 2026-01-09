@@ -5,7 +5,7 @@ import AgentAdd from './components/AgentAdd';
 import AgentAddCard from './components/AgentAddCard';
 const AgentAddPage = () => {
   return <>
-      <PageTitle subName="Real Estate" title="Add Agent" />
+      <PageTitle subName="" title="" />
       <Row>
         <AgentAddCard />
         <Col xl={9} lg={8}>

@@ -11,7 +11,7 @@ import TopAgents from './components/TopAgents';
 import TotalRevenue from './components/TotalRevenue';
 const AgentPage = () => {
   return <>
-      <PageTitle title="Agent" subName="Dashboards" />
+      <PageTitle title="" subName="" />
       <Row>
         <Statistics />
       </Row>

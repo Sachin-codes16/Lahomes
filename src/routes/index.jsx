@@ -20,6 +20,7 @@ const Maintenance = lazy(() => import('@/app/(other)/maintenance/page'));
 const Error404 = lazy(() => import('@/app/(other)/(error-pages)/404-error/page'));
 const TenantReport = lazy(() => import('../app/(admin)/Report/Tenants Report/Components/Tenants report.jsx'));
 const Landlord = lazy(() => import('../app/(admin)/landlord/landlord1.jsx'));
+const Comment = lazy(() => import('../app/(admin)/Comment/Comment.jsx'));
 const initialRoutes = [{
   path: '/',
   name: 'root',
@@ -82,6 +83,12 @@ const routes = [{
   name: 'Tenants  Report',
   element: <TenantReport />
 },
+{
+  name: 'Comment',
+  path: '/comments',
+  element: <Comment />
+},
+
 
 ];
 

@@ -13,7 +13,7 @@ import { customerData } from './data';
 const CustomerDetailsPage = () => {
   const propertyData = useFetchData(getAllProperty);
   return <>
-      <PageTitle subName="Customers" title="Customer Overview" />
+      <PageTitle subName="" title="" />
       <Row>
         <Col xl={8} lg={12}>
           <CustomersDetails />

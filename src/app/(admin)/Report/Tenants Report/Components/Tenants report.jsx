@@ -1,6 +1,7 @@
 import IconifyIcon from "@/components/wrappers/IconifyIcon";
 import { getAllAgent } from "@/helpers/data";
 import { Link } from "react-router-dom";
+import {  useNavigate } from 'react-router-dom';
 import {
   Button,
   Card,
@@ -17,9 +18,9 @@ import {
 } from "react-bootstrap";
 import { useFetchData } from "@/hooks/useFetchData";
 
-const AgentList = () => {
+const report  = () => {
   const agentData = useFetchData(getAllAgent);
-
+  const navigate = useNavigate();
   return (
     <Row>
       <Col xl={12}>
@@ -145,9 +146,14 @@ const AgentList = () => {
                           <Button variant="soft-primary" size="sm">
                             <IconifyIcon icon="solar:pen-2-broken" />
                           </Button>
-                          <Button variant="soft-danger" size="sm">
-                            <IconifyIcon icon="solar:trash-bin-minimalistic-2-broken" />
-                          </Button>
+                           <Button
+                           variant="light"
+                           size="sm"
+                           onClick={() => navigate('/comments')}
+>
+                           <IconifyIcon icon="ri:time-line" width={18} height={18} />
+                            </Button>
+
                         </div>
                       </td>
                     </tr>
@@ -194,4 +200,4 @@ const AgentList = () => {
   );
 };
 
-export default AgentList;
+export default report;
